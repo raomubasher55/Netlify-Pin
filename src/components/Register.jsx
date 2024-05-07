@@ -8,85 +8,27 @@ export const Register = () => {
     const { showNavbar, setShowNavbar } = useContext(NavbarContext);
     useEffect(() => {
         setShowNavbar(false);
+        const timer = setTimeout(() => {
+            setSpinner(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
     }, [])
 
     const [credential, setCredential] = useState({ name: "", email: "", username: "", password: "" });
     const [errors, setErrors] = useState({ Error: "" });
-    const [spinner, setSpinner] = useState(false)
+    const [spinner, setSpinner] = useState(true)
     const navigate = useNavigate();
 
     const onChange = (e) => {
         setCredential({ ...credential, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const host = "http://localhost:5000/";
-        setSpinner(true)
-        const response = await fetch(`${host}signup`, {
-            method: "POST",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: credential.name,
-                email: credential.email,
-                username: credential.username,
-                password: credential.password
-            }),
-        });
-        const data = await response.json();
-        setSpinner(false);
-        if (!response.ok) {
-            if (data && data.errors) {
-                const errorMessages = data.errors.map(error => error);
-                console.log(errorMessages[0].msg);
-                setErrors({ Error: errorMessages[0].msg })
-                toast.error(errorMessages[0].msg, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
-            }
-            else if (data) {
-                if (data.success === false) {
-                    console.log(data.error);
-                    setErrors({ Error: data.error })
-                    toast.error(data.error, {
-                        position: "top-center",
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "dark",
-                    });
-                }
-            }
-        } else {
-            toast.success('Registered  Successfullly!', {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-            navigate('/profile');
-        }
-    };
+
 
     return (
-        <> {spinner && <Spinner />}
+        <>
+         {spinner && <Spinner />}
             <div className='w-full min-h-[120vh] bg-white'>
                 <div className="h-screen w-full bg-cover backdrop-blur-10 flex justify-center items-center">
                     <div className="w-full max-w-md rounded-lg lg:mt-0 md:mt-6   mt-6 shadow-lg p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -101,7 +43,7 @@ export const Register = () => {
                                     <p>{errors.Error}</p>
                                 </div>
 
-                                <form onSubmit={handleSubmit} className="space-y-4">
+                                <form className="space-y-4">
                                     <input type="text" name="name" placeholder="Full Name"
                                         className="detail mb-4 rounded-md p-2 border border-gray-300 block w-full" onChange={onChange} value={credential.name} />
                                     <input type="text" name="username" placeholder="Username"

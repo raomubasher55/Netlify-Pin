@@ -27,45 +27,19 @@ export const SearchBar = () => {
     const handleOnChange = (e) => {
         setSearch(e.target.value);
         document.querySelector('#searchBtn').click();
-        handleSearch();
     };
 
     const componentContainer = () => {
         setComponent(true);
     }
-
     const handleSearch = async () => {
-        try {
-
-            const userResponse = await fetch(`http://localhost:5000/find?search=${encodeURIComponent(search)}`, {
-                method: "GET",
-            });
-
-            if (userResponse.ok) {
-                const data = await userResponse.json();
-                setSpinner(true)
-                setSearchResult(data);
-                setSpinner(false);
-                
-                if (data.length > 0) {
-                    setError(null);
-                } else {
-                    setSearchResult(null);
-                    setError("No users or posts found");
-                    setSearchResult(false)
-                }
-            } else {
-                setError("Failed to fetch search results");
-            }
-        } catch (error) {
-            setError("Error fetching search results");
-        }
+      
     };
 
 
     return (
         <>
-            {spinner && <Spinner/>}
+            {/* {spinner && <Spinner/>} */}
             <div className='flex flex-row flex-nowrap md:border-solid md:border-2 md:border-gray-800 rounded-lg md:pt-0 pt-1  ' ref={searchRef}>
                 <input
                     type='search'

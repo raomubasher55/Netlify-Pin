@@ -13,7 +13,6 @@ import { Notificationitem } from './components/Notificationitem'
 import { NotificationCard } from './components/NotificationCard'
 import { SearchBar } from './components/SearchBar'
 import { SearchBarCard } from './components/SearchBarCard'
-import { ClientViewProfile } from './components/ClientViewProfile'
 import { FindPinCard } from './components/FindPin'
 function App() {
 
@@ -29,7 +28,6 @@ function App() {
             <Route path="/signup" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/createpin" element={<CreatePin />} />
-            <Route path="/userprofile/:id" element={<ClientViewProfile />} />
           </Routes>
           </NavbarState>
         </PostState>

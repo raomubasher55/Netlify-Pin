@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Notificationitem } from './Notificationitem'
 
 
-export const NotificationCard = ({ handleCloseMessageCard }) => {
+export const NotificationCard = ({ handleCloseNotificationCard }) => {
   const [component, setComponent] = useState(true);
 
   const ref =useRef(null);
@@ -17,7 +17,7 @@ export const NotificationCard = ({ handleCloseMessageCard }) => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
         setComponent(false);
-        handleCloseMessageCard();
+        handleCloseNotificationCard();
   }
 }
   

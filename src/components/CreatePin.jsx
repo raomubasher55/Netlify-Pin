@@ -4,6 +4,7 @@ import { PostCard } from './PostCard';
 import { v4 as uuidv4 } from 'uuid';
 import { Model } from './Model';
 import NavbarContext from '../context/posts/NavbarContext';
+import { Spinner } from './Spinner';
 
 export const CreatePin = () => {
     const context = useContext(postContext)
@@ -13,9 +14,15 @@ export const CreatePin = () => {
     const [postArray, setPostArray] = useState([]);
     const [showPostCard, setShowPostCard] = useState(false);
     const [preView, setPreView] = useState("");
+    const [spinner, setSpinner] = useState(true)
 
     useEffect(() => {
-        setShowNavbar(true)
+        setShowNavbar(true);
+        const timer = setTimeout(() => {
+            setSpinner(false);
+        }, 500);
+
+        return () => clearTimeout(timer);
     }, [])
 
 
@@ -34,46 +41,26 @@ export const CreatePin = () => {
         e.preventDefault();
         setPostArray([...postArray, { ...post, id: uuidv4() }])
         await addPost(post.title, post.description, post.image, post.id)
-        setPost({ id: "", title: "", description: "", image: "" })
-        // console.log(postArray);
+        // setPost({ id: "", title: "", description: "", image: "" });
     };
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (file) {
-            setPost({ ...post, image: file });      //backend me direct file send krai hoti h
-            //          <--enough for backend--->
-
-
             //for fornt end for image preview
             const reader = new FileReader();
             reader.onloadend = () => {
                 const preImage = reader.result;
+                setPost({ ...post, image: preImage });   
                 setPreView(preImage);
             }
             reader.readAsDataURL(file);
         }
     };
 
-    //for fornt end use
-    // const handleImageUpload = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) {
-    //         const reader = new FileReader();
-    //         reader.onloadend = () => {
-    //             const image = reader.result;
-    //             setPost({ ...post, image });
-    //         };
-    //         reader.readAsDataURL(file);
-    //     }
-
-    // };
-
-
-
-
     return (
-        <div>
+        <>
+            {spinner && <Spinner/>}
             <div className="w-full  bg-gray mt-24 px-10 py-5 text-white">
                 <div className='flex justify-between fixed md:w-[96%] w-[86%] md:py-3 z-0 createPin top-[72px]'>
                     <h1 className='md:p-3 p-0 font-bold md:text-xl'>Create Pin</h1>
@@ -122,6 +109,6 @@ export const CreatePin = () => {
             <div className='container'>
                 <PostCard />
             </div>
-        </div>
+        </>
     )
 }

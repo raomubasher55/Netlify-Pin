@@ -6,27 +6,32 @@ import { Spinner } from './Spinner';
 export const Home = () => {
   const { showNavbar, setShowNavbar } = useContext(NavbarContext);
   const [data, setData] = useState([]);
-  const [spinner, setSpinner] = useState(false)
+  const [spinner, setSpinner] = useState(true)
 
-  const fetchAllPost = async () => {
-    setSpinner(true);
-    const response = await fetch(`http://localhost:5000/`, {
-      method: "GET",
-    });
-    const result = await response.json();
-    setSpinner(false);
-    setData(result);
-  }
+  // const fetchAllPost = async () => {
+  //   setSpinner(true);
+  //   const response = await fetch(`http://localhost:5000/`, {
+  //     method: "GET",
+  //   });
+  //   const result = await response.json();
+  //   setSpinner(false);
+  //   setData(result);
+  // }
 
   useEffect(() => {
-    fetchAllPost()
+    const timer = setTimeout(() => {
+      setSpinner(false);
+  }, 300);
+
+  return () => clearTimeout(timer);
     setShowNavbar(true);
   }, [])
 
 
 
   return (
-    <>{spinner && <Spinner/>}
+    <>
+    {spinner && <Spinner/>}
       {/* <div className="max-w-1200 mx-1 mt-[87px] pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 font-arial"> */}
       <div className="max-w-1200 mx-1 mt-[87px] pt-6  font-arial">
         <div className="Container">

@@ -2,16 +2,16 @@ import React, { useState, useEffect ,useContext ,useRef } from 'react';
 import postContext from '../context/posts/postContext';
 
 export const Model = ({ post }) => {
-    const { posts, updatePost , getAllPost } = useContext(postContext);
-    const [editedPost, setEditedPost] = useState({ title: '', description: '' }); // Initialize with empty object
-
+    const { updatePost } = useContext(postContext);
+    const [editedPost, setEditedPost] = useState({  });
     const closeRef = useRef(null);
+
     const onChange = (e) => {
         setEditedPost({ ...editedPost, [e.target.name]: e.target.value });
     };
 
     const handleSaveChanges = () => {
-        updatePost(editedPost._id , editedPost.title , editedPost.description);
+        updatePost(editedPost.id ,  editedPost.title , editedPost.description);
         closeRef.current.click();
     };
 
@@ -29,18 +29,17 @@ export const Model = ({ post }) => {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        {editedPost && (
-                            <form>
-                                <div className="mb-3">
-                                    <label htmlFor="title" className="form-label text-black">Title:</label>
-                                    <input type="text" className="form-control" id="title" name='title' value={editedPost.title} onChange={onChange} />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description:</label>
-                                    <textarea className="form-control" id="description" name='description' value={editedPost.description} onChange={onChange}></textarea>
-                                </div>
-                            </form>
-                        )}
+                        <form>
+                            <div className="mb-3">
+                                <label htmlFor="title" className="form-label text-black">Title:</label>
+                                <input type="text" className="form-control" id="title" name='title' value={editedPost.title} onChange={onChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="description" className="form-label">Description:</label>
+                                <textarea className="form-control" id="description" name='description' value={editedPost.description} onChange={onChange}></textarea>
+                            </div>
+                            {/* Add an input for image if needed */}
+                        </form>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" ref={closeRef}>Close</button>

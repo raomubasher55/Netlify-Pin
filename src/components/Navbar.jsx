@@ -23,7 +23,7 @@ export const Navbar = () => {
     const searchRef = useRef(null);
 
     const toggleNotificationCard = () => {
-        setMessageCard(true);
+        setShowNotificationCard(true);
     }
     const toggleMessageCard = () => {
         setMessageCard(true);
@@ -32,37 +32,13 @@ export const Navbar = () => {
     const handleCloseMessageCard = () => {
         setMessageCard(false);
     }
-
-    const handleOnlogout = async () => {
-        setSpinner(true)
-        const response = await fetch(`http://localhost:5000/logout`, {
-            method: "POST",
-            credentials: "include"
-        });
-        setSpinner(false)
-        const result = await response.json();
-        if (response.ok) {
-            setSpinner(ture)
-            navigate("/login");
-        }
+    const handleCloseNotificationCard = () => {
+        setShowNotificationCard(false);
     }
 
-    const user = async () => {
-        setSpinner(true);
-        const response = await fetch(`http://localhost:5000/profile`, {
-            method: "GET",
-            credentials: "include",
-        });
-        const result = await response.json();
-        setSpinner(false);
-        if (response.ok) {
-            setProfile(result.user.profileImage)
-        }
-    }
-
+ 
 
     useEffect(() => {
-        user();
         setHambuerger(false);
 
         document.addEventListener("mousedown", handleClickOutside);
@@ -84,15 +60,11 @@ export const Navbar = () => {
 
     const handleOnClose = () => {
         setHambuerger(false);
-        console.log("close working");
     }
 
 
     return (
         <>
-            { spinner &&
-                <Spinner />
-            }
             {showNavbar &&
                 <nav className=" w-full fixed top-0 z-10 bg-black md:p-1 p-0 ">
                     {hambuerger &&
@@ -148,12 +120,12 @@ export const Navbar = () => {
                             <button onClick={toggleMessageCard} className='hover:bg-slate-500  hover:rounded-full p-2 sm:hidden md:hidden lg:block hidden '><lord-icon colors="primary:#ffffff" src="https://cdn.lordicon.com/ayhtotha.json" trigger="hover" style={{ width: "30px", height: "30px" }}></lord-icon></button>
                             {!profile ? <Link className='hover:bg-slate-500 hover:p-2 hover:rounded-md p-2 ' to="/profile"><span ><lord-icon colors="primary:#ffffff" src="https://cdn.lordicon.com/hrjifpbq.json" trigger="hover" style={{ width: "30px", height: "30px" }}>
                             </lord-icon></span></Link> : <Link className='hover:bg-slate-500  hover:p-2 hover:rounded-md p-2 ' to="/profile"><span ><img className='w-9 h-9 rounded-full' src={`./images/uploads/${profile}`} alt="" /></span></Link>}
-                            <Link onClick={handleOnlogout} className="px-3 py-2 bg-red-600  text-white rounded-lg sm:hidden md:hidden lg:block hidden " to="/login">Logout</Link>
+                            <Link  className="px-3 py-2 bg-red-600  text-white rounded-lg sm:hidden md:hidden lg:block hidden " to="/login">Logout</Link>
                         </div>
                     </div>
                 </nav>
             }
-            {messageCard && <NotificationCard handleCloseMessageCard={handleCloseMessageCard} />}
+            {showNotificationCard && <NotificationCard handleCloseNotificationCard={handleCloseNotificationCard} />}
             {messageCard && <MessageCard handleCloseMessageCard={handleCloseMessageCard} />}
         </>
     )
