@@ -66,7 +66,7 @@ export const CreatePin = () => {
                     <h1 className='md:p-3 p-0 font-bold md:text-xl'>Create Pin</h1>
                     <button onClick={uploadPost} id='public' className='bg-red-600 md:text-base text-sm rounded-full font-bold  md:px-6 lg:px-4 px-3 md:py-4 py-1  '>Public</button>
                 </div>
-                <hr className="opacity-30 mt-12" />
+                <hr className="opacity-30 " />
                 <form id='uploadForm' encType="multipart/form]-data">
                     <div className='flex flex-row w-full'>
                         {post.image == "" ? <div onClick={loadPost} className="bg-gray-200  lg:h-[450px] md:h-[330px] h-[120px] lg:w-2/5 md:w-2/4 w-[60%]  rounded-md my-5 text-black">
