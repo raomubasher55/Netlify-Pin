@@ -102,7 +102,7 @@ export const Navbar = () => {
                             </div>
                             <hr />
                             <div className="flex  justify-center">
-                                <Link onClick={handleOnlogout} className="px-7 py-2 bg-red-600  text-white rounded-lg font-bold text-xl" to="/login">Logout</Link>
+                                <Link    className="px-7 py-2 bg-red-600  text-white rounded-lg font-bold text-xl" to="/login">Logout</Link>
                             </div>
 
                         </div>
