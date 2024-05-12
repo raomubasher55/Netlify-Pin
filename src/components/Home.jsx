@@ -37,8 +37,8 @@ export const Home = () => {
         <div className="Container">
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/006.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
@@ -49,8 +49,8 @@ export const Home = () => {
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/013.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
@@ -61,8 +61,8 @@ export const Home = () => {
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/021.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
@@ -72,8 +72,8 @@ export const Home = () => {
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/015.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
@@ -82,8 +82,8 @@ export const Home = () => {
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/025.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
@@ -91,44 +91,44 @@ export const Home = () => {
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/026.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/008.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/019.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
 
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/014.jpg`} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/020.jpg `} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>
           <div className="box cardColor p-2">
             <img src={`https://orionstardesign.com/wp-content/uploads/2023/08/024.jpg `} alt="image" />
-            <div className="caption font-bold mt-2">Title</div>
-            <div className="caption font-bold mt-1">Description</div>
+            <div className="caption font-bold mt-2">Lorem</div>
+            <div className="caption font-bold mt-1">Lorem</div>
             <div className='flex justify-between mt-2'>
             </div>
           </div>

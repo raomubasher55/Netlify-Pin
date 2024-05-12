@@ -41,7 +41,7 @@ export const CreatePin = () => {
         e.preventDefault();
         setPostArray([...postArray, { ...post, id: uuidv4() }])
         await addPost(post.title, post.description, post.image, post.id)
-        // setPost({ id: "", title: "", description: "", image: "" });
+        setPost({ id: "", title: "", description: "", image: "" });
     };
 
     const handleImageUpload = (e) => {
